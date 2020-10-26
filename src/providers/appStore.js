@@ -29,7 +29,7 @@ class AppStoreProvider implements IProvider {
       const countryCode = opt.country ? `${opt.country}/` : '';
       if (!opt.idStore) console.error('missing id store')
       return fetch(
-        `https://itunes.apple.com/${countryCode}/lookup?id=${opt.idStore}`,
+        `https://itunes.apple.com/${countryCode}/lookup?id=${opt.idStore}&timestamp=${Date.now()}`,
         opt.fetchOptions
       )
         .then(res => res.json())
